@@ -1,0 +1,278 @@
+:root {
+  --black: #0b0b0b;
+  --dark: #151515;
+  --white: #ffffff;
+  --paper: #f5f5f3;
+  --line: #e4e4e0;
+  --muted: #70706a;
+  --accent: #ffcc00;
+  --accent-2: #ff6a00;
+  --red: #e6312a;
+  --green: #1f8a4c;
+
+  --font-latin: 'Archivo', system-ui, sans-serif;
+  --font-arabic: 'Cairo', 'Archivo', system-ui, sans-serif;
+
+  --header-h: 64px;
+  --announce-h: 36px;
+
+  --maxw: 1440px;
+  --pad: clamp(16px, 4vw, 48px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-latin);
+  background: var(--white);
+  color: var(--black);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+[dir='rtl'] body {
+  font-family: var(--font-arabic);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 900;
+  line-height: 1.02;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+[dir='rtl'] h1,
+[dir='rtl'] h2,
+[dir='rtl'] h3,
+[dir='rtl'] h4 {
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 8vw, 7rem);
+}
+h2 {
+  font-size: clamp(1.9rem, 4.5vw, 3.6rem);
+}
+h3 {
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--black);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 28px;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+  white-space: nowrap;
+}
+
+.btn--dark {
+  background: var(--black);
+  color: var(--white);
+}
+.btn--dark:hover {
+  background: var(--accent);
+  color: var(--black);
+}
+
+.btn--accent {
+  background: var(--accent);
+  color: var(--black);
+}
+.btn--accent:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn--light {
+  background: var(--white);
+  color: var(--black);
+}
+.btn--light:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+.btn--ghost:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+.section-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: clamp(1.8rem, 4vw, 3.4rem);
+}
+
+.section-title .sub {
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: 8px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 4px;
+  white-space: nowrap;
+}
+.link-arrow:hover {
+  color: var(--accent-2);
+}
+
+[dir='rtl'] .link-arrow svg {
+  transform: scaleX(-1);
+}
+
+/* Marquee ticker */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--black);
+  color: var(--white);
+  padding: 14px 0;
+  border-block: 1px solid #2a2a2a;
+}
+
+.marquee__track {
+  display: inline-block;
+  animation: marquee 22s linear infinite;
+}
+
+.marquee__track span {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-inline-end: 48px;
+}
+
+.marquee--accent {
+  background: var(--accent);
+  color: var(--black);
+  border-color: var(--black);
+}
+
+[dir='rtl'] .marquee__track {
+  animation-direction: reverse;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.5s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
