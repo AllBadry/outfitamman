@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /products.json
+
+Sitemap: https://outfitamman.com/sitemap.xml
