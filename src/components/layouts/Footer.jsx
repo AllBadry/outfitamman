@@ -54,7 +54,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="md:col-span-2 md:col-start-7">
+          <div className="md:col-span-2 md:col-start-5">
             <h4 className="text-[#f8f6f0] font-serif text-lg mb-6">Explore</h4>
             <ul className="flex flex-col gap-4 text-xs uppercase tracking-widest font-bold opacity-80">
               <li><Link to="/new-arrivals" className="hover:text-[#c6a87c] transition-colors">New Arrivals</Link></li>
@@ -65,7 +65,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 md:col-start-7">
             <h4 className="text-[#f8f6f0] font-serif text-lg mb-6">Services</h4>
             <ul className="flex flex-col gap-4 text-xs uppercase tracking-widest font-bold opacity-80">
               <li><Link to="/book-appointment" className="hover:text-[#c6a87c] transition-colors">Book an Appointment</Link></li>
@@ -76,7 +76,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 md:col-start-9">
+            <h4 className="text-[#f8f6f0] font-serif text-lg mb-6">Account</h4>
+            <ul className="flex flex-col gap-4 text-xs uppercase tracking-widest font-bold opacity-80">
+              <li><Link to="/login" className="hover:text-[#c6a87c] transition-colors">Sign In</Link></li>
+              <li><Link to="/cart" className="hover:text-[#c6a87c] transition-colors">My Cart</Link></li>
+              <li><Link to="/book-appointment" className="hover:text-[#c6a87c] transition-colors">Personal Fittings</Link></li>
+              <li><Link to="/services#size-guide" className="hover:text-[#c6a87c] transition-colors">Measurements</Link></li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-2 md:col-start-11">
             <h4 className="text-[#f8f6f0] font-serif text-lg mb-6">Contact</h4>
             <ul className="flex flex-col gap-4 text-xs font-mono opacity-80">
               <li><a href="tel:+962790000000" className="hover:text-[#c6a87c] transition-colors">+962 7 9000 0000</a></li>

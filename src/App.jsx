@@ -12,6 +12,8 @@ import OurStory from './pages/OurStory'
 import BookAppointment from './pages/BookAppointment'
 import Services from './pages/Services'
 import FAQ from './pages/FAQ'
+import Cart from './pages/Cart'
+import Login from './pages/Login'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import NotFound from './pages/NotFound'
@@ -28,6 +30,8 @@ function PageTitle() {
     '/book-appointment': 'Book an Appointment — Outfit Amman',
     '/services': 'Client Care — Outfit Amman',
     '/faq': 'Frequently Asked Questions — Outfit Amman',
+    '/cart': 'Shopping Bag — Outfit Amman',
+    '/login': 'Sign In — Outfit Amman',
     '/privacy-policy': 'Privacy Policy — Outfit Amman',
     '/terms': 'Terms of Service — Outfit Amman',
   }
@@ -53,6 +57,8 @@ function App() {
         <Route path="/book-appointment" element={<BookAppointment />} />
         <Route path="/services" element={<Services />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/privacy-policy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="*" element={<NotFound />} />

@@ -76,18 +76,18 @@ export default function Navbar() {
         </div>
 
         <div className={`hidden md:flex items-center gap-6 transition-colors ${lightTop ? 'text-[#f8f6f0]' : 'text-[#2c241e]'}`}>
-          <button className="hover:text-[#c6a87c] transition-colors duration-300">
+          <button className="hover:text-[#c6a87c] transition-colors duration-300" aria-label="Search">
             <Search size={22} strokeWidth={1.5} />
           </button>
-          <button className="hover:text-[#c6a87c] transition-colors duration-300">
+          <Link to="/login" aria-label="Sign in" className="hover:text-[#c6a87c] transition-colors duration-300">
             <User size={22} strokeWidth={1.5} />
-          </button>
-          <button className="hover:text-[#c6a87c] transition-colors duration-300 relative">
+          </Link>
+          <Link to="/cart" aria-label="Shopping bag" className="hover:text-[#c6a87c] transition-colors duration-300 relative">
             <ShoppingBag size={22} strokeWidth={1.5} />
             <span className="absolute -top-1.5 -right-1.5 bg-[#c6a87c] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
               2
             </span>
-          </button>
+          </Link>
         </div>
 
         <button
@@ -121,13 +121,17 @@ export default function Navbar() {
 
           <div className="flex gap-8 mt-4 pt-6 border-t border-[#d6cec0]/50 w-[60%] justify-center text-[#2c241e]">
             <Search size={24} strokeWidth={1.5} className="hover:text-[#c6a87c] cursor-pointer" />
-            <User size={24} strokeWidth={1.5} className="hover:text-[#c6a87c] cursor-pointer" />
-            <div className="relative cursor-pointer hover:text-[#c6a87c]">
-              <ShoppingBag size={24} strokeWidth={1.5} />
-              <span className="absolute -top-1.5 -right-1.5 bg-[#c6a87c] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
-                2
-              </span>
-            </div>
+            <Link to="/login" onClick={() => setIsOpen(false)} aria-label="Sign in">
+              <User size={24} strokeWidth={1.5} className="hover:text-[#c6a87c] cursor-pointer" />
+            </Link>
+            <Link to="/cart" onClick={() => setIsOpen(false)} aria-label="Shopping bag">
+              <div className="relative cursor-pointer hover:text-[#c6a87c]">
+                <ShoppingBag size={24} strokeWidth={1.5} />
+                <span className="absolute -top-1.5 -right-1.5 bg-[#c6a87c] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                  2
+                </span>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
