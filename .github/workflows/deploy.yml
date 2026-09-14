@@ -1,4 +1,4 @@
-name: Deploy React Vite App to GitHub Pages
+name: Deploy Vite App to GitHub Pages
 
 on:
   push:
@@ -26,6 +26,10 @@ jobs:
 
       - name: Build Project
         run: npm run build
+
+      # خطوة مهمة لـ Single Page Applications لتجنب أخطاء 404 عند إعادة التحميل
+      - name: Copy index.html to 404.html
+        run: cp dist/index.html dist/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
