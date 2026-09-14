@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ShoppingBag, Scissors, Award } from 'lucide-react';
@@ -7,6 +7,23 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function FashionHero() {
   const containerRef = useRef(null);
+
+  // حساب مقياس الكولاج ليتناسب مع شاشات الموبايل فقط (دون لمس سطح المكتب)
+  const [fitScale, setFitScale] = useState(() =>
+    typeof window !== 'undefined' && window.innerWidth < 768
+      ? Math.max(0.28, Math.min(0.7, (window.innerWidth / 1300) * 1.1))
+      : null
+  );
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      setFitScale(w < 768 ? Math.max(0.28, Math.min(0.7, (w / 1300) * 1.1)) : null);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -51,11 +68,17 @@ export default function FashionHero() {
     // زدنا الارتفاع إلى 150vh لإعطاء مساحة للسكرول والبارالاكس
     <section 
       ref={containerRef} 
-      className="relative w-full min-h-[150vh] bg-[#f8f6f0] flex items-start justify-center overflow-hidden font-sans pt-32"
+      className="relative w-full min-h-[120vh] sm:min-h-[150vh] bg-[#f8f6f0] flex items-start justify-center overflow-hidden font-sans pt-20 sm:pt-32"
     >
       
       {/* حاوية الـ Canvas الثابتة للحفاظ على دقة التقاطع (Pixel-Perfect) */}
-      <div className="sticky top-20 relative w-[1300px] h-[900px] origin-top scale-[0.35] sm:scale-50 md:scale-75 xl:scale-100 2xl:scale-105">
+      <div 
+        className="sticky top-20 relative w-[1300px] h-[900px] origin-top scale-[0.35] sm:scale-50 md:scale-75 xl:scale-100 2xl:scale-105"
+        style={{
+          transform: fitScale ? `scale(${fitScale})` : undefined,
+          transformOrigin: fitScale ? 'center top' : undefined,
+        }}
+      >
 
         {/* 0. خطوط الشبكة الخلفية */}
         <div className="absolute inset-0 pointer-events-none z-0">

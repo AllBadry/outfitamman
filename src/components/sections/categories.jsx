@@ -85,7 +85,7 @@ export default function Categories() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
           {categoriesData.map((category) => (
             <div 
               key={category.id} 
@@ -99,15 +99,15 @@ export default function Categories() {
               
               <div className="absolute inset-0 bg-gradient-to-t from-[#14110e]/90 via-[#14110e]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="absolute bottom-0 left-0 p-8 w-full translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <span className="block text-[#c6a87c] text-[10px] uppercase tracking-[0.2em] font-bold mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full sm:translate-y-4 sm:group-hover:translate-y-0 transition-transform duration-500">
+                <span className="block text-[#c6a87c] text-[10px] uppercase tracking-[0.2em] font-bold mb-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-500 sm:delay-100">
                   {category.subtitle}
                 </span>
-                <h3 className="text-[#f8f6f0] text-2xl font-serif font-medium flex items-center justify-between">
+                <h3 className="text-[#f8f6f0] text-xl md:text-2xl font-serif font-medium flex items-center justify-between">
                   {category.title}
                   <ArrowRight 
                     size={20} 
-                    className="text-[#c6a87c] opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-100" 
+                    className="text-[#c6a87c] opacity-100 sm:opacity-0 -translate-x-2 sm:-translate-x-4 sm:group-hover:opacity-100 sm:group-hover:translate-x-0 transition-all duration-500 sm:delay-100" 
                   />
                 </h3>
               </div>

@@ -45,7 +45,7 @@ export default function Offers() {
       const moveAmount = track.scrollWidth - window.innerWidth;
 
       const scrollTl = gsap.to(track, {
-        x: -moveAmount,
+        x: () => -(track.scrollWidth - window.innerWidth),
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -82,19 +82,19 @@ export default function Offers() {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#c6a87c] opacity-[0.03] rounded-full blur-[100px]" />
       </div>
 
-      <div className="absolute top-12 md:top-20 left-6 md:left-12 z-20">
+      <div className="absolute top-24 md:top-20 left-6 md:left-12 z-20">
         <div className="flex items-center gap-3 mb-2">
           <Tag size={16} className="text-[#c6a87c]" />
           <span className="text-[#c6a87c] uppercase tracking-[0.3em] text-[10px] font-bold">VIP Members</span>
         </div>
-        <h2 className="text-4xl md:text-6xl font-serif font-light leading-none">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif font-light leading-none">
           Exclusive <br /> <span className="italic text-[#d6cec0]">Offers</span>
         </h2>
       </div>
 
       <div 
         ref={trackRef} 
-        className="absolute top-0 left-0 h-full flex items-center pt-32 md:pt-16 px-6 md:px-12 w-max"
+        className="absolute top-0 left-0 h-full flex items-center pt-24 md:pt-16 px-6 md:px-12 w-max"
       >
         <div className="flex gap-8 md:gap-16 items-center">
           
@@ -103,7 +103,7 @@ export default function Offers() {
           {offersData.map((offer, index) => (
             <div 
               key={offer.id} 
-              className={`relative flex-shrink-0 w-[85vw] md:w-[600px] h-[60vh] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row ${offer.color}`}
+              className={`relative flex-shrink-0 w-[85vw] md:w-[600px] h-[55vh] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row ${offer.color}`}
             >
               <div className="flex-1 p-8 md:p-10 flex flex-col justify-between z-10">
                 <div>

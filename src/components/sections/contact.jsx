@@ -28,14 +28,14 @@ export default function Contact() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#f8f6f0] py-32 px-6 md:px-12 relative overflow-hidden">
+    <section ref={sectionRef} className="w-full bg-[#f8f6f0] py-20 md:py-32 px-6 md:px-12 relative overflow-hidden">
       
       {/* لمسة تصميمية: حرف M ضخم وشفاف في الخلفية */}
       <div className="absolute -bottom-20 -right-10 text-[#d6cec0]/20 text-[400px] font-serif leading-none select-none pointer-events-none">
         M
       </div>
 
-      <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 relative z-10">
+      <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 relative z-10">
         
         {/* العمود الأيسر: معلومات التواصل */}
         <div className="flex flex-col justify-center">

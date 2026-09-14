@@ -39,8 +39,8 @@ export default function CraftSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#f8f6f0] py-32 px-6 md:px-12 z-40">
-      <div className="max-w-[1300px] mx-auto flex flex-col md:flex-row items-center gap-16">
+    <section ref={sectionRef} className="relative w-full bg-[#f8f6f0] py-20 md:py-32 px-6 md:px-12 z-40">
+      <div className="max-w-[1300px] mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
         
         <div className="flex-1 max-w-xl">
           <div className="craft-text flex items-center gap-4 mb-6">
