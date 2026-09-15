@@ -5,19 +5,6 @@ import { ShoppingBag, Scissors, Award } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// روابط صور CDN عالية الجودة ومستقرة للأزياء الرجالية الكلاسيكية
-const HERO_IMAGES = {
-  fabric: "https://images.pexels.com/photos/4622224/pexels-photo-4622224.jpeg?auto=compress&cs=tinysrgb&w=400",
-  suitDetail: "https://images.pexels.com/photos/3755706/pexels-photo-3755706.jpeg?auto=compress&cs=tinysrgb&w=400",
-  tailoring: "https://images.pexels.com/photos/4622434/pexels-photo-4622434.jpeg?auto=compress&cs=tinysrgb&w=600",
-  centerModel: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=600",
-  maleProfile: "https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=600",
-  shoes: "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=400",
-  watch: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=400",
-  tie: "https://images.pexels.com/photos/45055/pexels-photo-45055.jpeg?auto=compress&cs=tinysrgb&w=400",
-  bag: "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=600"
-};
-
 export default function FashionHero() {
   const sectionRef = useRef(null);
 
@@ -25,9 +12,10 @@ export default function FashionHero() {
     const mm = gsap.matchMedia();
 
     // ============================================================
-    // سطح المكتب (>= 768px): التركيبة الأصلية Pixel-Perfect
+    // سطح المكتب (>= 768px): التركيبة الأصلية Pixel-Perfect كما هي
     // ============================================================
     mm.add('(min-width: 768px)', () => {
+      // 1. حركة دخول التجميع (Assembly/Gathering Intro)
       gsap.from('.collage-item', {
         y: () => gsap.utils.random(-150, 150),
         x: () => gsap.utils.random(-150, 150),
@@ -39,6 +27,7 @@ export default function FashionHero() {
         stagger: 0.05,
       });
 
+      // 2. حركة البارالاكس مع التمرير (Scroll Parallax)
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -56,9 +45,10 @@ export default function FashionHero() {
     });
 
     // ============================================================
-    // الجوال (< 768px): ترتيب عمودي متجاوب
+    // الجوال (< 768px): نفس بطاقات الكولاج لكن بترتيب عمودي متجاوب
     // ============================================================
     mm.add('(max-width: 767px)', () => {
+      // حركة دخول متتابعة خفيفة (Lighter Assembly Intro)
       gsap.from('.collage-item', {
         y: () => gsap.utils.random(-60, 60),
         x: () => gsap.utils.random(-40, 40),
@@ -70,6 +60,7 @@ export default function FashionHero() {
         stagger: 0.08,
       });
 
+      // بارالاكس بسيط للحرف M خلف البطاقات
       gsap.to('.m-mobile', {
         y: -90,
         opacity: 0.05,
@@ -82,6 +73,7 @@ export default function FashionHero() {
         },
       });
 
+      // رفع خفيف للكومة كاملة لإحساس العمق أثناء التمرير
       gsap.to('.mobile-stack', {
         y: -40,
         ease: 'none',
@@ -104,11 +96,11 @@ export default function FashionHero() {
     >
 
       {/* =====================================================
-          نسخة سطح المكتب
+          نسخة سطح المكتب (دون أي تغيير عن التصميم الأصلي)
       ===================================================== */}
       <div className="hidden md:flex items-start justify-center min-h-[150vh] pt-32 overflow-hidden">
 
-        {/* حاوية الـ Canvas الثابتة */}
+        {/* حاوية الـ Canvas الثابتة (Pixel-Perfect) */}
         <div className="sticky top-20 relative w-[1300px] h-[900px] origin-top scale-[0.35] sm:scale-50 md:scale-75 xl:scale-100 2xl:scale-105">
 
           {/* 0. خطوط الشبكة الخلفية */}
@@ -127,10 +119,10 @@ export default function FashionHero() {
             <div className="w-8 h-1.5 bg-[#c6a87c] rounded-full mb-4" />
             <h3 className="text-[#3b322b] text-[22px] font-medium leading-tight mb-4">Summer<br />Collection</h3>
             <div className="grid grid-cols-2 gap-2">
-              <img src={HERO_IMAGES.fabric} alt="Fabric texture" className="h-20 w-full object-cover rounded-[14px]" crossOrigin="anonymous" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=300&q=80" alt="Fabric texture" className="h-20 w-full object-cover rounded-[14px]" />
               <div className="h-20 w-full bg-[#f4f1eb] rounded-[14px]" />
               <div className="h-20 w-full bg-[#f4f1eb] rounded-[14px]" />
-              <img src={HERO_IMAGES.suitDetail} alt="Suit detail" className="h-20 w-full object-cover rounded-[14px]" crossOrigin="anonymous" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1594938298596-70f56f91f3c4?auto=format&fit=crop&w=300&q=80" alt="Suit detail" className="h-20 w-full object-cover rounded-[14px]" />
             </div>
           </div>
 
@@ -142,18 +134,18 @@ export default function FashionHero() {
               <h2 className="text-[#f8f6f0] text-3xl font-light leading-tight">Premium<br />Custom<br />Tailoring</h2>
             </div>
             <div className="w-full h-36 rounded-2xl overflow-hidden relative bg-[#3b322b]">
-              <img src={HERO_IMAGES.tailoring} alt="Tailoring" className="w-full h-full object-cover opacity-80" crossOrigin="anonymous" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1598808503746-f34c53b9323e?auto=format&fit=crop&w=400&q=80" alt="Tailoring" className="w-full h-full object-cover opacity-80" />
             </div>
           </div>
 
           {/* 4. القبة الوسطى (عريس / موديل) */}
           <div className="collage-item parallax-slow absolute top-[26%] left-[49%] w-[230px] h-[330px] overflow-hidden rounded-t-[120px] rounded-b-[32px] shadow-2xl z-20 border border-white/50 bg-[#d6cec0]">
-            <img src={HERO_IMAGES.centerModel} alt="Men fashion model" className="w-full h-full object-cover" crossOrigin="anonymous" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1593032465175-481ac7f401a0?auto=format&fit=crop&w=500&q=80" alt="Men fashion model" className="w-full h-full object-cover" />
           </div>
 
           {/* 5. الوجه المقطوع أعلى اليمين */}
           <div className="collage-item parallax-fast absolute top-[0%] left-[68%] w-[180px] h-[380px] bg-[#e6dfd1] z-10 overflow-hidden">
-            <img src={HERO_IMAGES.maleProfile} alt="Male profile" className="w-full h-full object-cover object-center grayscale contrast-125 mix-blend-multiply opacity-80" crossOrigin="anonymous" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" alt="Male profile" className="w-full h-full object-cover object-center grayscale contrast-125 mix-blend-multiply opacity-80" />
           </div>
 
           {/* 6. الأيقونات أعلى اليمين */}
@@ -198,9 +190,9 @@ export default function FashionHero() {
                 </button>
               </div>
               <div className="flex-1 flex flex-col gap-2">
-                <img src={HERO_IMAGES.shoes} alt="Leather shoes" className="h-[80px] w-full rounded-2xl object-cover" crossOrigin="anonymous" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1499013819532-e4ff41b00669?auto=format&fit=crop&w=300&q=80" alt="Leather shoes" className="h-[80px] w-full rounded-2xl object-cover" />
                 <div className="flex gap-2 h-[80px]">
-                  <img src={HERO_IMAGES.watch} alt="Accessories" className="w-1/2 rounded-2xl object-cover" crossOrigin="anonymous" loading="lazy" />
+                  <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=300&q=80" alt="Accessories" className="w-1/2 rounded-2xl object-cover" />
                   <div className="w-1/2 rounded-2xl bg-gradient-to-br from-[#c6a87c] to-[#8b7355]" />
                 </div>
               </div>
@@ -224,9 +216,9 @@ export default function FashionHero() {
             </div>
             <div className="w-[180px] flex flex-col gap-2">
               <div className="h-[60px] bg-[#f4f1eb] rounded-[14px] ml-auto w-16 overflow-hidden">
-                <img src={HERO_IMAGES.tie} alt="Tie" className="w-full h-full object-cover" crossOrigin="anonymous" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=200&q=80" alt="Tie" className="w-full h-full object-cover" />
               </div>
-              <img src={HERO_IMAGES.bag} alt="Leather bag" className="h-[105px] w-full rounded-[20px] object-cover bg-zinc-100" crossOrigin="anonymous" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=400&q=80" alt="Leather bag" className="h-[105px] w-full rounded-[20px] object-cover bg-zinc-100" />
             </div>
           </div>
 
@@ -234,10 +226,11 @@ export default function FashionHero() {
       </div>
 
       {/* =====================================================
-          نسخة الجوال
+          نسخة الجوال: ترتيب عمودي أنيق بنفس هوية الكولاج
       ===================================================== */}
       <div className="md:hidden relative min-h-[115vh] pt-24 overflow-hidden">
 
+        {/* الحاوية اللاصقة لتكرار إحساس البارالاكس أثناء التمرير */}
         <div className="sticky top-16 mobile-stack w-full max-w-md mx-auto px-5 flex flex-col items-center gap-5 pb-10">
 
           {/* الحرف الضخم M في الخلفية */}
@@ -267,8 +260,8 @@ export default function FashionHero() {
             </div>
             <h2 className="text-[#f8f6f0] font-serif text-[28px] leading-[1.15]">Redefining<br />Modern<br />Elegance</h2>
             <div className="grid grid-cols-3 gap-2 mt-5">
-              <img src={HERO_IMAGES.shoes} alt="Leather shoes" className="h-20 w-full rounded-2xl object-cover" crossOrigin="anonymous" loading="lazy" />
-              <img src={HERO_IMAGES.watch} alt="Accessories" className="h-20 w-full rounded-2xl object-cover" crossOrigin="anonymous" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1499013819532-e4ff41b00669?auto=format&fit=crop&w=300&q=80" alt="Leather shoes" className="h-20 w-full rounded-2xl object-cover" />
+              <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=300&q=80" alt="Accessories" className="h-20 w-full rounded-2xl object-cover" />
               <div className="h-20 w-full rounded-2xl bg-gradient-to-br from-[#c6a87c] to-[#8b7355]" />
             </div>
             <button className="mt-6 w-full py-3 bg-[#c6a87c] text-[#2c241e] text-[10px] uppercase tracking-widest font-bold rounded-full hover:bg-[#b5986c] transition-colors">
@@ -278,19 +271,19 @@ export default function FashionHero() {
 
           {/* القبة الوسطى (الموديل) */}
           <div className="collage-item relative z-10 w-[230px] aspect-[230/330] overflow-hidden rounded-t-[120px] rounded-b-[2rem] shadow-2xl border border-white/50 bg-[#d6cec0] shrink-0">
-            <img src={HERO_IMAGES.centerModel} alt="Men fashion model" className="w-full h-full object-cover" crossOrigin="anonymous" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1593032465175-481ac7f401a0?auto=format&fit=crop&w=500&q=80" alt="Men fashion model" className="w-full h-full object-cover" />
           </div>
 
-          {/* بطاقتان صغيرتان */}
+          {/* بطاقتان صغيرتان جنباً إلى جنب */}
           <div className="relative z-10 grid grid-cols-2 gap-4 w-full">
             <div className="collage-item bg-white rounded-[1.5rem] p-4 shadow-xl border border-[#f4f1eb]">
               <div className="w-6 h-1 bg-[#c6a87c] rounded-full mb-4" />
               <h3 className="text-[#3b322b] text-[17px] font-medium leading-tight mb-3">Summer<br />Collection</h3>
               <div className="grid grid-cols-2 gap-1.5">
-                <img src={HERO_IMAGES.fabric} alt="Fabric texture" className="h-14 w-full object-cover rounded-xl" crossOrigin="anonymous" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=300&q=80" alt="Fabric texture" className="h-14 w-full object-cover rounded-xl" />
                 <div className="h-14 w-full bg-[#f4f1eb] rounded-xl" />
                 <div className="h-14 w-full bg-[#f4f1eb] rounded-xl" />
-                <img src={HERO_IMAGES.suitDetail} alt="Suit detail" className="h-14 w-full object-cover rounded-xl" crossOrigin="anonymous" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1594938298596-70f56f91f3c4?auto=format&fit=crop&w=300&q=80" alt="Suit detail" className="h-14 w-full object-cover rounded-xl" />
               </div>
             </div>
 
