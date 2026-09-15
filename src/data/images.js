@@ -4,7 +4,7 @@ const u = (id, w = 1000) =>
 export const IMG = {
   model: u('1593032465175-481ac7f401a0'),
   tailoring: u('1598808503746-f34c53b9323e'),
-  suitDetail: u('1594938298596-70f56f91f3c4'),
+  suitDetail: u('1441984904996-e0b6ba687e04'),
   fabric: u('1620799140408-edc6dcb6d633'),
   shoes: u('1499013819532-e4ff41b00669'),
   watch: u('1523170335258-f5ed11844a49'),

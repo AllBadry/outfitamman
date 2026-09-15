@@ -122,7 +122,7 @@ export default function FashionHero() {
               <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=300&q=80" alt="Fabric texture" className="h-20 w-full object-cover rounded-[14px]" />
               <div className="h-20 w-full bg-[#f4f1eb] rounded-[14px]" />
               <div className="h-20 w-full bg-[#f4f1eb] rounded-[14px]" />
-              <img src="https://images.unsplash.com/photo-1594938298596-70f56f91f3c4?auto=format&fit=crop&w=300&q=80" alt="Suit detail" className="h-20 w-full object-cover rounded-[14px]" />
+              <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=300&q=80" alt="Suit detail" className="h-20 w-full object-cover rounded-[14px]" />
             </div>
           </div>
 
@@ -283,7 +283,7 @@ export default function FashionHero() {
                 <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=300&q=80" alt="Fabric texture" className="h-14 w-full object-cover rounded-xl" />
                 <div className="h-14 w-full bg-[#f4f1eb] rounded-xl" />
                 <div className="h-14 w-full bg-[#f4f1eb] rounded-xl" />
-                <img src="https://images.unsplash.com/photo-1594938298596-70f56f91f3c4?auto=format&fit=crop&w=300&q=80" alt="Suit detail" className="h-14 w-full object-cover rounded-xl" />
+                <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=300&q=80" alt="Suit detail" className="h-14 w-full object-cover rounded-xl" />
               </div>
             </div>
 
