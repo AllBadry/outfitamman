@@ -14,7 +14,7 @@ const offersData = [
     title: "The Executive Bundle",
     discount: "25% OFF",
     desc: "Tailored Suit, Premium Cotton Shirt, and a Silk Tie. The complete boardroom look.",
-    image: "/products/suit-02.jpg",
+    image: "/products/mannnn.avif",
     color: "bg-[#2c241e]"
   },
   {

@@ -10,7 +10,7 @@ export const collections = [
       'Two fittings, one silhouette. Half-canvas construction in Italian wools, cut to your measure.',
     hero: IMG.model,
     products: [
-      { name: 'The Midnight Classic', cat: 'Three-Piece Suit', price: 780, image: '/products/suit-02.jpg', tag: 'Icon' },
+      { name: 'The Midnight Classic', cat: 'Three-Piece Suit', price: 780, image: '/products/mannnn.avif', tag: 'Icon' },
       { name: 'Charcoal Two-Piece', cat: 'Bespoke Suits', price: 695, image: '/products/suit-01.jpg' },
       { name: 'Double-Breasted Blazer', cat: 'Blazers', price: 640, image: '/products/suit-03.jpg' },
       { name: 'Fully-Canvassed Overcoat', cat: 'Outerwear', price: 450, image: '/products/suit-06.jpg' },
