@@ -1,7 +1,7 @@
 import PageHero from '../components/PageHero';
 import Reveal from '../components/Reveal';
 import { IMG } from '../data/images';
-import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
+import { MapPin, Clock, ArrowRight } from 'lucide-react';
 
 export default function BookAppointment() {
   return (
@@ -44,16 +44,6 @@ export default function BookAppointment() {
               </Reveal>
 
               <Reveal delay={0.1} className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full border border-[#d6cec0] flex items-center justify-center text-[#c6a87c] shrink-0">
-                  <Phone size={18} strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h4 className="text-[#2c241e] font-serif text-lg mb-1">Concierge Line</h4>
-                  <p className="text-[#8a7f72] text-sm font-mono">+962 7 9000 0000<br />concierge@outfitamman.com</p>
-                </div>
-              </Reveal>
-
-              <Reveal delay={0.15} className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full border border-[#d6cec0] flex items-center justify-center text-[#c6a87c] shrink-0">
                   <Clock size={18} strokeWidth={1.5} />
                 </div>
@@ -118,10 +108,7 @@ export default function BookAppointment() {
                   Reserve My Slot
                   <ArrowRight size={18} strokeWidth={2} className="group-hover:translate-x-1 transition-transform" />
                 </button>
-                <p className="text-[#a89c8f] text-[10px] text-center font-mono -mt-3">
-                  <Mail size={12} className="inline mr-1" />
-                  Prefer to write? concierge@outfitamman.com answers within one business day.
-                </p>
+                
               </form>
             </Reveal>
           </div>

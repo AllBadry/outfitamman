@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
+import { MapPin, Clock, ArrowRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,16 +60,6 @@ export default function Contact() {
               <div>
                 <h4 className="text-[#2c241e] font-serif text-lg mb-1">Showroom Address</h4>
                 <p className="text-[#8a7f72] text-sm font-mono">Sweifieh Village, Amman<br />Hashemite Kingdom of Jordan</p>
-              </div>
-            </div>
-
-            <div className="contact-item flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full border border-[#d6cec0] flex items-center justify-center text-[#c6a87c] shrink-0">
-                <Phone size={18} strokeWidth={1.5} />
-              </div>
-              <div>
-                <h4 className="text-[#2c241e] font-serif text-lg mb-1">Contact Details</h4>
-                <p className="text-[#8a7f72] text-sm font-mono">+962 7 9000 0000<br />concierge@outfitamman.com</p>
               </div>
             </div>
 

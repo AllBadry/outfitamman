@@ -118,12 +118,7 @@ export default function Login() {
             </button>
 
             <div className="mt-10 pt-8 border-t border-[#d6cec0]/40 flex flex-col items-center gap-3">
-              <p className="text-[10px] text-[#a89c8f] font-mono leading-relaxed text-center">
-                Need help? Our concierge team is available Saturday–Thursday: 10:00–22:00.
-                <br />
-                <a href="mailto:concierge@outfitamman.com" className="text-[#c6a87c] hover:underline">concierge@outfitamman.com</a>
-              </p>
-              <Link to="/" className="text-[#8a7f72] text-[10px] uppercase tracking-widest font-bold hover:text-[#c6a87c] transition-colors mt-2">
+              <Link to="/" className="text-[#8a7f72] text-[10px] uppercase tracking-widest font-bold hover:text-[#c6a87c] transition-colors">
                 ← Back to Homepage
               </Link>
             </div>

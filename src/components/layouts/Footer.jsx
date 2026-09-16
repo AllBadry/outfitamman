@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { FaInstagram, FaFacebookF, FaXTwitter } from 'react-icons/fa6';
 import Logo from '../Logo';
 
 export default function Footer() {
@@ -41,17 +40,6 @@ export default function Footer() {
             <p className="text-xs font-mono opacity-60 leading-relaxed max-w-xs mb-8">
               Redefining modern elegance through premium bespoke tailoring, curated collections, and timeless essentials for the modern gentleman.
             </p>
-            <div className="flex gap-4">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-[#5c4e42] flex items-center justify-center hover:border-[#c6a87c] hover:text-[#c6a87c] transition-colors">
-                <FaInstagram size={16} />
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-[#5c4e42] flex items-center justify-center hover:border-[#c6a87c] hover:text-[#c6a87c] transition-colors">
-                <FaFacebookF size={14} />
-              </a>
-              <a href="https://x.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-[#5c4e42] flex items-center justify-center hover:border-[#c6a87c] hover:text-[#c6a87c] transition-colors">
-                <FaXTwitter size={14} />
-              </a>
-            </div>
           </div>
 
           <div className="md:col-span-2 md:col-start-5">
@@ -89,9 +77,7 @@ export default function Footer() {
           <div className="md:col-span-2 md:col-start-11">
             <h4 className="text-[#f8f6f0] font-serif text-lg mb-6">Contact</h4>
             <ul className="flex flex-col gap-4 text-xs font-mono opacity-80">
-              <li><a href="tel:+962790000000" className="hover:text-[#c6a87c] transition-colors">+962 7 9000 0000</a></li>
-              <li><a href="mailto:concierge@outfitamman.com" className="hover:text-[#c6a87c] transition-colors">concierge@outfitamman.com</a></li>
-              <li className="mt-2 text-[#c6a87c] uppercase tracking-widest font-bold text-[10px]">
+              <li className="text-[#c6a87c] uppercase tracking-widest font-bold text-[10px]">
                 Sweifieh Village, Amman
               </li>
             </ul>

@@ -11,6 +11,8 @@ import Lookbook from './pages/Lookbook'
 import OurStory from './pages/OurStory'
 import BookAppointment from './pages/BookAppointment'
 import Services from './pages/Services'
+import CollectionPage from './pages/CollectionPage'
+import { collections } from './data/collections'
 import FAQ from './pages/FAQ'
 import Cart from './pages/Cart'
 import Login from './pages/Login'
@@ -35,7 +37,8 @@ function PageTitle() {
     '/privacy-policy': 'Privacy Policy — Outfit Amman',
     '/terms': 'Terms of Service — Outfit Amman',
   }
-  const title = titles[location.pathname] || 'Page not found — Outfit Amman'
+  const col = location.pathname.match(/^\/collections\/(.+)$/) ? collections.find((c) => c.slug === location.pathname.split('/')[2]) : null
+  const title = col ? `${col.title} — Outfit Amman` : (titles[location.pathname] || 'Page not found — Outfit Amman')
   const htmlTitle = document.getElementById('page-title')
   if (htmlTitle) htmlTitle.textContent = title
   return null
@@ -51,6 +54,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/new-arrivals" element={<NewArrivals />} />
         <Route path="/collections" element={<Collections />} />
+        <Route path="/collections/:slug" element={<CollectionPage />} />
         <Route path="/tailoring" element={<Tailoring />} />
         <Route path="/lookbook" element={<Lookbook />} />
         <Route path="/our-story" element={<OurStory />} />

@@ -1,35 +1,38 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
 import { Tag, ArrowUpRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// روابط صور مستقرة ومضمونة 100%
+// روابط صور مستقرة ومضمونة 100% (يتم تحميلها محلياً)
 const offersData = [
   {
     id: 1,
+    slug: 'bespoke-suits',
     title: "The Executive Bundle",
     discount: "25% OFF",
     desc: "Tailored Suit, Premium Cotton Shirt, and a Silk Tie. The complete boardroom look.",
-    image: "https://images.unsplash.com/photo-1598808503746-f34c53b9323e?auto=format&fit=crop&w=800&q=80",
+    image: "/products/suit-02.jpg",
     color: "bg-[#2c241e]"
   },
   {
     id: 2,
+    slug: 'smart-casual',
     title: "Summer Linen Essentials",
     discount: "BUY 2 GET 1",
     desc: "Stay cool with our breathable Italian linen shirts. Perfect for the Mediterranean heat.",
-    // الرابط المضمون 100% (نسيج قماش صيفي)
-    image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80",
+    image: "/products/casual-01.jpg",
     color: "bg-[#4a3f35]"
   },
   {
     id: 3,
+    slug: 'fine-footwear',
     title: "The Leather Signature",
     discount: "SPECIAL PRICE",
     desc: "Handcrafted Oxford shoes paired with a matching full-grain leather belt.",
-    image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=800&q=80",
+    image: "/products/shoes-01.jpg",
     color: "bg-[#14110e]"
   }
 ];
@@ -52,6 +55,7 @@ export default function Offers() {
           start: "top top",
           end: () => `+=${moveAmount}`,
           pin: true,
+          anticipatePin: 1,
           scrub: 1,
           invalidateOnRefresh: true,
         }
@@ -101,9 +105,10 @@ export default function Offers() {
           <div className="w-[10vw] md:w-[30vw] shrink-0" />
 
           {offersData.map((offer, index) => (
-            <div 
-              key={offer.id} 
-              className={`relative flex-shrink-0 w-[85vw] md:w-[600px] h-[55vh] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row ${offer.color}`}
+            <Link
+              key={offer.id}
+              to={`/collections/${offer.slug}`}
+              className={`relative flex-shrink-0 w-[85vw] md:w-[600px] h-[55vh] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row ${offer.color} group`}
             >
               <div className="flex-1 p-8 md:p-10 flex flex-col justify-between z-10">
                 <div>
@@ -115,24 +120,25 @@ export default function Offers() {
                     {offer.desc}
                   </p>
                 </div>
-                
-                <button className="group flex items-center gap-4 text-xs uppercase tracking-widest font-bold mt-8 w-max">
+
+                <span className="flex items-center gap-4 text-xs uppercase tracking-widest font-bold mt-8 w-max">
                   <span className="group-hover:text-[#c6a87c] transition-colors">Claim Offer</span>
                   <div className="w-10 h-10 rounded-full bg-[#f8f6f0] text-[#14110e] flex items-center justify-center group-hover:bg-[#c6a87c] transition-colors">
                     <ArrowUpRight size={18} strokeWidth={2} />
                   </div>
-                </button>
+                </span>
               </div>
 
               <div className="relative flex-1 h-48 md:h-full overflow-hidden hidden sm:block">
-                <img 
-                  src={offer.image} 
-                  alt={offer.title} 
+                <img
+                  src={offer.image}
+                  alt={offer.title}
+                  loading="lazy"
                   className="offer-image absolute top-0 -left-12 w-[150%] h-full object-cover opacity-80"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-inherit to-transparent w-12" />
               </div>
-            </div>
+            </Link>
           ))}
 
           <div className="w-[10vw] shrink-0 flex flex-col items-center justify-center text-[#d6cec0]/40 font-mono text-sm">

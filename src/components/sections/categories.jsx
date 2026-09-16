@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -9,27 +10,31 @@ gsap.registerPlugin(ScrollTrigger);
 const categoriesData = [
   {
     id: 1,
+    slug: 'bespoke-suits',
     title: 'Bespoke Suits',
     subtitle: 'Signature Tailoring',
-    image: 'https://images.unsplash.com/photo-1593032465175-481ac7f401a0?auto=format&fit=crop&w=600&q=80',
+    image: '/products/suit-01.jpg',
   },
   {
     id: 2,
+    slug: 'smart-casual',
     title: 'Smart Casual',
     subtitle: 'Everyday Elegance',
-    image: 'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=600&q=80',
+    image: '/products/casual-01.jpg',
   },
   {
     id: 3,
+    slug: 'fine-footwear',
     title: 'Fine Footwear',
     subtitle: 'Crafted Leather',
-    image: 'https://images.unsplash.com/photo-1499013819532-e4ff41b00669?auto=format&fit=crop&w=600&q=80',
+    image: '/products/shoes-01.jpg',
   },
   {
     id: 4,
+    slug: 'accessories',
     title: 'Accessories',
     subtitle: 'The Final Touch',
-    image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80',
+    image: '/products/bag-01.jpg',
   },
 ];
 
@@ -79,17 +84,18 @@ export default function Categories() {
               Curated <br /> For The <span className="italic text-[#8b7355]">Gentleman</span>
             </h2>
           </div>
-          <button className="flex items-center gap-2 text-[#2c241e] hover:text-[#c6a87c] transition-colors border-b border-[#2c241e] hover:border-[#c6a87c] pb-1 text-xs uppercase tracking-widest font-bold">
+          <Link to="/collections" className="flex items-center gap-2 text-[#2c241e] hover:text-[#c6a87c] transition-colors border-b border-[#2c241e] hover:border-[#c6a87c] pb-1 text-xs uppercase tracking-widest font-bold">
             View All Categories
             <ArrowRight size={16} strokeWidth={1.5} />
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
           {categoriesData.map((category) => (
-            <div 
-              key={category.id} 
-              className="cat-card group relative overflow-hidden rounded-[2rem] aspect-[3/4] cursor-pointer shadow-lg bg-[#2c241e]"
+            <Link
+              key={category.id}
+              to={`/collections/${category.slug}`}
+              className="cat-card group relative overflow-hidden rounded-[2rem] aspect-[3/4] cursor-pointer shadow-lg bg-[#2c241e] block"
             >
               <img 
                 src={category.image} 
@@ -111,7 +117,7 @@ export default function Categories() {
                   />
                 </h3>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

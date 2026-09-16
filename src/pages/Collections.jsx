@@ -1,44 +1,15 @@
 import { useLayoutEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PageHero from '../components/PageHero';
 import Reveal from '../components/Reveal';
 import ParallaxImage from '../components/ParallaxImage';
 import { IMG } from '../data/images';
+import { collections } from '../data/collections';
 import { ArrowRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const collections = [
-  {
-    id: '01',
-    title: 'Bespoke Suits',
-    subtitle: 'Signature Tailoring',
-    desc: 'Two fittings, one silhouette. Half-canvas construction in Italian wools, cut to your measure.',
-    image: IMG.model,
-  },
-  {
-    id: '02',
-    title: 'Smart Casual',
-    subtitle: 'Everyday Elegance',
-    desc: 'Relaxed tailoring for a modern life — unstructured jackets and brushed cottons in muted earth tones.',
-    image: IMG.casual,
-  },
-  {
-    id: '03',
-    title: 'Fine Footwear',
-    subtitle: 'Crafted Leather',
-    desc: 'Goodyear-welted Oxfords and loafers, hand-patinated by artisans over three days of work.',
-    image: IMG.shoes,
-  },
-  {
-    id: '04',
-    title: 'The Accessory Room',
-    subtitle: 'The Final Touch',
-    desc: 'Silk ties, leather goods and subtle timepieces that complete the composition.',
-    image: IMG.bag,
-  },
-];
 
 export default function Collections() {
   const sectionRef = useRef(null);
@@ -57,6 +28,7 @@ export default function Collections() {
           start: 'top top',
           end: () => `+=${moveAmount}`,
           pin: true,
+          anticipatePin: 1,
           scrub: 1,
           invalidateOnRefresh: true,
         },
@@ -108,13 +80,14 @@ export default function Collections() {
             <div className="w-[8vw] shrink-0" />
 
             {collections.map((c) => (
-              <div
+              <Link
                 key={c.id}
-                className="relative flex-shrink-0 w-[84vw] md:w-[620px] h-[56vh] md:h-[560px] rounded-[2rem] overflow-hidden shadow-2xl group cursor-pointer bg-[#2c241e]"
+                to={`/collections/${c.slug}`}
+                className="relative flex-shrink-0 w-[84vw] md:w-[620px] h-[56vh] md:h-[560px] rounded-[2rem] overflow-hidden shadow-2xl group cursor-pointer bg-[#2c241e] block"
               >
                 <div className="absolute inset-0 overflow-hidden">
                   <img
-                    src={c.image}
+                    src={c.hero}
                     alt={c.title}
                     className="col-img absolute top-0 -left-[8%] w-[116%] h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-700"
                   />
@@ -128,17 +101,13 @@ export default function Collections() {
                 <div className="absolute bottom-0 left-0 w-full p-8 md:p-10">
                   <span className="block text-[#c6a87c] text-[10px] uppercase tracking-[0.25em] font-bold mb-3">{c.subtitle}</span>
                   <h3 className="text-[#f8f6f0] font-serif text-3xl md:text-5xl font-light mb-4">{c.title}</h3>
-                  <p className="text-[#d6cec0]/70 text-xs md:text-sm font-mono leading-relaxed max-w-md mb-6">{c.desc}</p>
-                  <a
-                    href="#"
-                    onClick={(e) => e.preventDefault()}
-                    className="inline-flex items-center gap-3 text-[10px] uppercase tracking-widest font-bold text-[#f8f6f0] border-b border-[#c6a87c] pb-1 hover:text-[#c6a87c] transition-colors"
-                  >
-                    View Collection
+                  <p className="text-[#d6cec0]/70 text-xs md:text-sm font-mono leading-relaxed max-w-md mb-6">{c.description}</p>
+                  <span className="inline-flex items-center gap-3 text-[10px] uppercase tracking-widest font-bold text-[#f8f6f0] border-b border-[#c6a87c] pb-1 group-hover:text-[#c6a87c] transition-colors">
+                    View Collection ({c.products.length})
                     <ArrowRight size={14} strokeWidth={1.5} />
-                  </a>
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
 
             <div className="w-[12vw] shrink-0 flex flex-col items-center justify-center text-[#d6cec0]/40 font-mono text-sm">
@@ -168,13 +137,15 @@ export default function Collections() {
           </Reveal>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {[IMG.suitDetail, IMG.watch, IMG.tie, IMG.mocassin].map((src, i) => (
-              <Reveal key={i} delay={i * 0.08} className="group relative overflow-hidden rounded-[1.6rem] aspect-[4/5] cursor-pointer">
-                <img src={src} alt="Curated pair" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#14110e]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="absolute bottom-5 left-5 text-[#f8f6f0] font-serif text-lg opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                  0{i + 1}
-                </span>
+            {collections.map((c, i) => (
+              <Reveal key={c.slug} delay={i * 0.08} className="group relative overflow-hidden rounded-[1.6rem] aspect-[4/5] cursor-pointer">
+                <Link to={`/collections/${c.slug}`} className="block w-full h-full">
+                  <img src={c.products[0].image} alt={c.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#14110e]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="absolute bottom-5 left-5 text-[#f8f6f0] font-serif text-lg opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    {c.title.split(' ')[0]} 0{i + 1}
+                  </span>
+                </Link>
               </Reveal>
             ))}
           </div>
