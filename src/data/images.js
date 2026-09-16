@@ -4,7 +4,7 @@ const u = (id, w = 1000) =>
 export const IMG = {
   model: u('1593032465175-481ac7f401a0'),
   tailoring: u('1598808503746-f34c53b9323e'),
-  suitDetail: u('1441984904996-e0b6ba687e04'),
+  suitDetail: u('1472099645785-5658abf4ff4e'),
   fabric: u('1620799140408-edc6dcb6d633'),
   shoes: u('1499013819532-e4ff41b00669'),
   watch: u('1523170335258-f5ed11844a49'),
@@ -20,6 +20,6 @@ export const IMG = {
   manSuit: u('1544022613-e87ca75a784a'),
   stylishMan: u('1492562080023-ab3db95bfbce'),
   darkSuit: u('1531891570158-e71b35a485bc'),
-  blazer: u('1507679799987-c73779587ccf'),
-  shirt: u('1596755094514-f87e34085b2c'),
+  blazer: u('1504257432389-52343af06ae3'),
+  shirt: u('1500648767791-00dcc994a43e'),
 };
