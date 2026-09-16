@@ -17,7 +17,7 @@ export const IMG = {
   manPortrait: u('1507003211169-0a1dd7228f2d'),
   manSmile: u('1519085360753-af0119f7cbe7'),
   manStreet: u('1521341057461-6eb5f40b07ab'),
-  manSuit: u('1544022613-e87ca75a784a'),
+  manSuit: u('1463453091185-61582044d556'),
   stylishMan: u('1492562080023-ab3db95bfbce'),
   darkSuit: u('1531891570158-e71b35a485bc'),
   blazer: u('1504257432389-52343af06ae3'),
